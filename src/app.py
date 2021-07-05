@@ -7,7 +7,7 @@ import bcrypt
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/prueba'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:pass_db@proyecto_db/prueba'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -17,7 +17,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(70))
     mail = db.Column(db.String(70), unique=True)
-    password = db.Column(db.String)
+    password = db.Column(db.String(255))
     university_code = db.Column(db.Integer, unique=True)
     role = db.Column(db.String(2))
     cellphone = db.Column(db.Integer)
@@ -384,4 +384,4 @@ def signup():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000, host="0.0.0.0")
