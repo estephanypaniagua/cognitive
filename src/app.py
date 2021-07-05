@@ -2,6 +2,9 @@ from operator import methodcaller
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from werkzeug.security import generate_password_hash, check_password_hash
+import bcrypt
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/prueba'
@@ -13,20 +16,18 @@ ma = Marshmallow(app)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(70))
-    user = db.Column(db.String(20), unique=True)
-    password = db.Column(db.String(20))
+    mail = db.Column(db.String(70), unique=True)
+    password = db.Column(db.String)
     university_code = db.Column(db.Integer, unique=True)
     role = db.Column(db.String(2))
-    mail = db.Column(db.String(70), unique=True)
     cellphone = db.Column(db.Integer)
 
-    def __init__(self, name, user, password, university_code, role, mail, cellphone):
+    def __init__(self, name, mail, password, university_code, role, cellphone):
         self.name = name
-        self.user = user
+        self.mail = mail
         self.password = password
         self.university_code = university_code
         self.role = role
-        self.mail = mail
         self.cellphone = cellphone
 
 
@@ -124,14 +125,13 @@ def index():
 def create_user():
     # Crear datos
     name = request.json['name']
-    user = request.json['user']
+    mail = request.json['mail']
     password = request.json['password']
     university_code = request.json['university_code']
     role = request.json['role']
-    mail = request.json['mail']
     cellphone = request.json['cellphone']
-    new_user = User(name, user, password, university_code,
-                    role, mail, cellphone)
+    new_user = User(name, mail, password, university_code,
+                    role, cellphone)
     db.session.add(new_user)
     db.session.commit()
     return user_schema.jsonify(new_user)
@@ -157,18 +157,16 @@ def update_user(id):
     # Actualizar 1 dato
     user_real = User.query.get(id)
     name = request.json['name']
-    user = request.json['user']
+    mail = request.json['mail']
     password = request.json['password']
     university_code = request.json['university_code']
     role = request.json['role']
-    mail = request.json['mail']
     cellphone = request.json['cellphone']
     user_real.name = name
-    user_real.user = user
+    user_real.mail = mail
     user_real.password = password
     user_real.university_code = university_code
     user_real.role = role
-    user_real.mail = mail
     user_real.cellphone = cellphone
     db.session.commit()
     return user_schema.jsonify(user_real)
@@ -347,8 +345,42 @@ def delete_transaction(id):
 # Login
 
 
-# @app.route('/login', methods=['POST'])
-# def login(): return user.login()
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return jsonify({'message': 'Bienvenido al login'})
+    else:
+        mail = request.json['mail']
+        password = request.json['password']
+        user = User.query.filter_by(mail=mail).first()
+        if not user:
+            return jsonify({'message': 'Error usuario inexistente'})
+        elif not bcrypt.checkpw(password.encode('utf-8'), user.password):
+            return jsonify({'message': 'Contraseña incorrecta'})
+        return jsonify({'message': 'Login correcto'})
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'GET':
+        return jsonify({'message': 'Bienvenido al signup'})
+    else:
+        name = request.json['name']
+        mail = request.json['mail']
+        password = request.json['password']
+        pass_hasheada = bcrypt.hashpw(
+            password.encode('utf-8'), bcrypt.gensalt())
+        university_code = request.json['university_code']
+        role = "US"
+        cellphone = request.json['cellphone']
+        user = User.query.filter_by(mail=mail).first()
+        if user:
+            return jsonify({'message': 'Usuario existente'})
+        new_user = User(name=name, mail=mail, password=pass_hasheada, university_code=university_code,
+                        role=role, cellphone=cellphone)
+        db.session.add(new_user)
+        db.session.commit()
+        return user_schema.jsonify(new_user)
 
 
 if __name__ == "__main__":
