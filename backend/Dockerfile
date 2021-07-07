@@ -7,4 +7,6 @@ RUN pip3 install -r requerimientos.txt
 
 COPY . .
 
+WORKDIR /app/src
+
 CMD [ "python3", "app.py"]

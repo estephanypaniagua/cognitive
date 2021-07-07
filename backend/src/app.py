@@ -1,14 +1,12 @@
-from operator import methodcaller
+from bcrypt import checkpw, gensalt, hashpw
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from werkzeug.security import generate_password_hash, check_password_hash
-import bcrypt
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:pass_db@proyecto_db/prueba'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object("config")
+
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
@@ -19,7 +17,7 @@ class User(db.Model):
     mail = db.Column(db.String(70), unique=True)
     password = db.Column(db.String(255))
     university_code = db.Column(db.Integer, unique=True)
-    role = db.Column(db.String(2))
+    role = db.Column(db.String(15))
     cellphone = db.Column(db.Integer)
 
     def __init__(self, name, mail, password, university_code, role, cellphone):
@@ -179,6 +177,7 @@ def delete_user(id):
     db.session.delete(user)
     db.session.commit()
     return user_schema.jsonify(user)
+
 # Component
 
 
@@ -233,6 +232,7 @@ def delete_component(id):
     db.session.delete(component)
     db.session.commit()
     return component_schema.jsonify(component)
+
 # Category
 
 
@@ -349,38 +349,43 @@ def delete_transaction(id):
 def login():
     if request.method == 'GET':
         return jsonify({'message': 'Bienvenido al login'})
-    else:
-        mail = request.json['mail']
-        password = request.json['password']
-        user = User.query.filter_by(mail=mail).first()
-        if not user:
-            return jsonify({'message': 'Error usuario inexistente'})
-        elif not bcrypt.checkpw(password.encode('utf-8'), user.password):
-            return jsonify({'message': 'Contraseña incorrecta'})
-        return jsonify({'message': 'Login correcto'})
+    if request.json is None:
+        return jsonify({'message': 'Content Type debe ser JSON'}), 400
+
+    mail = request.json['mail']
+    password = request.json['password']
+
+    if not mail or not password:
+        return jsonify({'message': 'Campos incompletos!'}), 400
+    user = User.query.filter_by(mail=mail).first()
+    if not user:
+        return jsonify({'message': 'Error usuario inexistente'}), 404
+    if not checkpw(password.encode('utf-8'), user.password.encode("utf-8")):
+        return jsonify({'message': 'Contraseña incorrecta'}), 403
+    return jsonify({'message': 'Login correcto'})
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
         return jsonify({'message': 'Bienvenido al signup'})
-    else:
-        name = request.json['name']
-        mail = request.json['mail']
-        password = request.json['password']
-        pass_hasheada = bcrypt.hashpw(
-            password.encode('utf-8'), bcrypt.gensalt())
-        university_code = request.json['university_code']
-        role = "US"
-        cellphone = request.json['cellphone']
-        user = User.query.filter_by(mail=mail).first()
-        if user:
-            return jsonify({'message': 'Usuario existente'})
-        new_user = User(name=name, mail=mail, password=pass_hasheada, university_code=university_code,
-                        role=role, cellphone=cellphone)
-        db.session.add(new_user)
-        db.session.commit()
-        return user_schema.jsonify(new_user)
+
+    name = request.json['name']
+    mail = request.json['mail']
+    raw_password = request.json['password']
+    university_code = request.json['university_code']
+    cellphone = request.json['cellphone']
+
+    pass_hasheada = hashpw(raw_password.encode('utf-8'), gensalt())
+    role = "USER"
+    user = User.query.filter_by(mail=mail).first()
+    if user:
+        return jsonify({'message': 'Usuario existente'})
+    new_user = User(name=name, mail=mail, password=pass_hasheada, university_code=university_code,
+                    role=role, cellphone=cellphone)
+    db.session.add(new_user)
+    db.session.commit()
+    return user_schema.jsonify(new_user)
 
 
 if __name__ == "__main__":

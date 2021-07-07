@@ -1,8 +1,8 @@
-FROM mysql
+# Imagen base para la base de datos
+FROM mysql:8.0.25
 
-# Add a database
+# Crea la base de datos `prueba`
 ENV MYSQL_DATABASE prueba
-# Add the content of the sql-scripts/ directory to your image
-# All scripts in docker-entrypoint-initdb.d/ are automatically
-# executed during container startup
+
+# Copia scripts SQL que se ejecutarán al iniciar el contenedor
 COPY ./db.sql /docker-entrypoint-initdb.d/

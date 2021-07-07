@@ -1,25 +1,27 @@
-version: '3'
+version: "3"
 
 services:
-  proyecto:
+  project:
     build:
-      context: ./src
+      context: ./backend
       dockerfile: Dockerfile
-    image: proyecto
-    container_name: proyecto
-    restart: unless-stopped
+    container_name: project
+    environment:
+      DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
+    image: cognitive_g6/project
     ports:
       - "5000:5000"
-
-  proyecto_db:
-    build:
-        context: ./database
-        dockerfile: Dockerfile
-    image: proyecto_db
-    container_name: proyecto_db
     restart: unless-stopped
+
+  project_db:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: project_db
     environment:
-      - MYSQL_ROOT_PASSWORD=pass_db
+      MYSQL_ROOT_PASSWORD: pass_db
+    image: cognitive_g6/project_db
+    restart: unless-stopped
     volumes:
       - dbdata:/var/lib/mysql
 
