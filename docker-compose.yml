@@ -1,29 +1,50 @@
 version: "3"
 
 services:
-  project:
+  project_backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: project
+    container_name: project_backend
     environment:
       DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
-    image: cognitive_g6/project
+    image: cognitive_g6/project_backend
     ports:
       - "5000:5000"
     restart: unless-stopped
 
-  project_db:
+  project_frontend:
     build:
-      context: ./database
+      context: ./frontend
       dockerfile: Dockerfile
+    container_name: project_frontend
+    image: cognitive_g6/project_frontend
+    ports:
+      - "5001:80"
+    restart: unless-stopped
+
+  project_db:
     container_name: project_db
     environment:
-      MYSQL_ROOT_PASSWORD: pass_db
-    image: cognitive_g6/project_db
+      - MYSQL_DATABASE=prueba
+      - MYSQL_ROOT_PASSWORD=pass_db
+    image: mysql:8.0.25
+    ports:
+      - "5002:3306"
     restart: unless-stopped
     volumes:
       - dbdata:/var/lib/mysql
+
+  project_db_pma:
+    container_name: project_db_pma
+    image: phpmyadmin/phpmyadmin:5.1.1
+    environment:
+      - PMA_HOST=project_db
+      - PMA_USER=root
+      - PMA_PASSWORD=pass_db
+    ports:
+      - "5003:80"
+    restart: unless-stopped
 
 volumes:
   dbdata:
