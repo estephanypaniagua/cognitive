@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request
 from flask_cors import CORS
 
 from flask_l414 import db
-from flask_l414.models.User import UserModel, user_schema, users_schema
+from flask_l414.models import UserModel, user_schema, users_schema
 
 
 auth = Blueprint('auth', __name__)

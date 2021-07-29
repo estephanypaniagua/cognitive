@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_cors import CORS
 
 from flask_l414 import db
-from flask_l414.models.Transaction import TransactionModel, transaction_schema, transactions_schema
+from flask_l414.models import TransactionModel, transaction_schema, transactions_schema
 
 
 transactions = Blueprint('transactions', __name__)

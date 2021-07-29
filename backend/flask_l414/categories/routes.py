@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_cors import CORS
 
 from flask_l414 import db
-from flask_l414.models.Category import CategoryModel, categories_schema, category_schema
+from flask_l414.models import CategoryModel, categories_schema, category_schema
 
 
 categories = Blueprint('categories', __name__)

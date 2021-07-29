@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_cors import CORS
 
 from flask_l414 import db
-from flask_l414.models.Component import ComponentModel, component_schema, components_schema
+from flask_l414.models import ComponentModel, component_schema, components_schema
 
 
 components = Blueprint('components', __name__)
