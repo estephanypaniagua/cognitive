@@ -13,6 +13,7 @@ import {
   CategoryList,
   CategoryShow,
 } from "./Categories";
+import { UserCreate, UserEdit, UserIcon, UserList, UserShow } from "./Users";
 
 // import ViewHome from "./ViewHome";
 // import ViewLogin from "./ViewLogin";
@@ -41,6 +42,15 @@ const App = () => {
         list={ComponentList}
         name="components"
         options={{ label: "Componentes" }}
+      />
+      <Resource
+        create={UserCreate}
+        edit={UserEdit}
+        icon={UserIcon}
+        list={UserList}
+        name="users"
+        options={{ label: "Usuarios" }}
+        show={UserShow}
       />
     </Admin>
   );

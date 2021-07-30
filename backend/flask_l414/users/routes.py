@@ -1,3 +1,4 @@
+from bcrypt import gensalt, hashpw
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS
 
@@ -9,28 +10,16 @@ users = Blueprint('users', __name__)
 CORS(users, supports_credentials=True)
 
 
-@users.route('/users', methods=['POST'])
-def create_user():
-    # Crear datos
-    name = request.json['name']
-    mail = request.json['mail']
-    password = request.json['password']
-    university_code = request.json['university_code']
-    role = request.json['role']
-    cellphone = request.json['cellphone']
-    new_user = UserModel(name, mail, password, university_code,
-                         role, cellphone)
-    db.session.add(new_user)
-    db.session.commit()
-    return user_schema.jsonify(new_user)
-
-
 @users.route('/users', methods=['GET'])
 def get_users():
     # Leer todos los datos
     all_users = UserModel.query.all()
     result = users_schema.dump(all_users)
-    return jsonify(result)
+    cc = len(result)
+    response = jsonify(result)
+    response.headers["Content-Range"] = f"bytes {0}-{cc}/{cc}"
+    response.headers["Access-Control-Expose-Headers"] = "Content-Range"
+    return response
 
 
 @users.route('/users/<id>', methods=['GET'])
@@ -40,19 +29,36 @@ def get_user(id):
     return user_schema.jsonify(user)
 
 
+@users.route('/users', methods=['POST'])
+def create_user():
+    # Crear datos
+    name = request.json['name']
+    mail = request.json['mail']
+    password = request.json['password']
+    pass_hasheada = hashpw(password.encode('utf-8'), gensalt())
+    university_code = request.json['university_code']
+    role = request.json['role']
+    cellphone = request.json['cellphone']
+    new_user = UserModel(name, mail, pass_hasheada, university_code,
+                         role, cellphone)
+    db.session.add(new_user)
+    db.session.commit()
+    return user_schema.jsonify(new_user)
+
+
 @users.route('/users/<id>', methods=['PUT'])
 def update_user(id):
     # Actualizar 1 dato
     user_real = UserModel.query.get(id)
     name = request.json['name']
     mail = request.json['mail']
-    password = request.json['password']
+    # password = request.json['password']
     university_code = request.json['university_code']
     role = request.json['role']
     cellphone = request.json['cellphone']
     user_real.name = name
     user_real.mail = mail
-    user_real.password = password
+    # user_real.password = password
     user_real.university_code = university_code
     user_real.role = role
     user_real.cellphone = cellphone
