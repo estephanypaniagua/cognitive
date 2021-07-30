@@ -21,6 +21,8 @@ class Config:
 
     DATABASE_CONNECT_OPTIONS = {}
 
+    JWT_SECRET_KEY = "MY_COOL_SECRET"
+
     # Application threads. A common general assumption is
     # using 2 per available processor cores - to handle
     # incoming requests using one and performing background

@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 
@@ -10,6 +11,7 @@ from flask_l414.config import Config
 db = SQLAlchemy()
 ma = Marshmallow()
 bcrypt = Bcrypt()
+jwt = JWTManager()
 
 
 def create_app(config_class=Config):
@@ -20,6 +22,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     ma.init_app(app)
     bcrypt.init_app(app)
+    jwt.init_app(app)
 
     from flask_l414.healthchecks.routes import healthchecks
     from flask_l414.auth.routes import auth

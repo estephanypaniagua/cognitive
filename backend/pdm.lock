@@ -80,6 +80,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "flask-jwt-extended"
+version = "4.2.3"
+requires_python = ">=3.6,<4.0"
+summary = "Extended JWT integration with Flask"
+dependencies = [
+    "Flask<3.0,>=1.0",
+    "PyJWT<3.0,>=2.0",
+    "Werkzeug>=0.14",
+]
+
+[[package]]
 name = "flask-marshmallow"
 version = "0.14.0"
 summary = "Flask + marshmallow for beautiful APIs"
@@ -171,6 +182,12 @@ requires_python = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 summary = "C parser in Python"
 
 [[package]]
+name = "PyJWT"
+version = "2.1.0"
+requires_python = ">=3.6"
+summary = "JSON Web Token implementation in Python"
+
+[[package]]
 name = "PyMySQL"
 version = "1.0.2"
 requires_python = ">=3.6"
@@ -215,7 +232,7 @@ summary = "The comprehensive WSGI web application library."
 
 [metadata]
 lock_version = "3.1"
-content_hash = "sha256:9c85d34636a0c3714b12ea5986f29a239b22174486423a6fa75cbf44d77de408"
+content_hash = "sha256:1745e9b1b0a9aa22a05c06a6f4f8ad65befefb9ac13cc5f1d4338c1dbfe8ac75"
 
 [metadata.files]
 "autopep8 1.5.7" = [
@@ -310,6 +327,10 @@ content_hash = "sha256:9c85d34636a0c3714b12ea5986f29a239b22174486423a6fa75cbf44d
 "flask-cors 3.0.10" = [
     {file = "Flask_Cors-3.0.10-py2.py3-none-any.whl", hash = "sha256:74efc975af1194fc7891ff5cd85b0f7478be4f7f59fe158102e91abb72bb4438"},
     {file = "Flask-Cors-3.0.10.tar.gz", hash = "sha256:b60839393f3b84a0f3746f6cdca56c1ad7426aa738b70d6c61375857823181de"},
+]
+"flask-jwt-extended 4.2.3" = [
+    {file = "Flask_JWT_Extended-4.2.3-py2.py3-none-any.whl", hash = "sha256:26969d931bd959dd6b82b2ac07733b499d52c8967229e70bf4ad5859de6cb3b2"},
+    {file = "Flask-JWT-Extended-4.2.3.tar.gz", hash = "sha256:22b8ffa7587d50aaf65f3009f1d55ef7287da8260eaf4655a5837e33479216c3"},
 ]
 "flask-marshmallow 0.14.0" = [
     {file = "flask_marshmallow-0.14.0-py2.py3-none-any.whl", hash = "sha256:2adcd782b5a4a6c5ae3c96701f320d8ca6997995a52b2661093c56cc3ed24754"},
@@ -458,6 +479,10 @@ content_hash = "sha256:9c85d34636a0c3714b12ea5986f29a239b22174486423a6fa75cbf44d
 "pycparser 2.20" = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
+]
+"pyjwt 2.1.0" = [
+    {file = "PyJWT-2.1.0-py3-none-any.whl", hash = "sha256:934d73fbba91b0483d3857d1aff50e96b2a892384ee2c17417ed3203f173fca1"},
+    {file = "PyJWT-2.1.0.tar.gz", hash = "sha256:fba44e7898bbca160a2b2b501f492824fc8382485d3a6f11ba5d0c1937ce6130"},
 ]
 "pymysql 1.0.2" = [
     {file = "PyMySQL-1.0.2-py3-none-any.whl", hash = "sha256:41fc3a0c5013d5f039639442321185532e3e2c8924687abe6537de157d403641"},

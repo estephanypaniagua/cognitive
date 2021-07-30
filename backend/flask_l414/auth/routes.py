@@ -1,6 +1,8 @@
+from os import access
 from bcrypt import checkpw, gensalt, hashpw
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS
+from flask_jwt_extended import create_access_token
 
 from flask_l414 import db
 from flask_l414.models import UserModel, user_schema, users_schema
@@ -27,7 +29,11 @@ def login():
         return jsonify({'message': 'Error usuario inexistente'}), 404
     if not checkpw(password.encode('utf-8'), user.password.encode("utf-8")):
         return jsonify({'message': 'Contraseña incorrecta'}), 403
-    return jsonify({'message': 'Login correcto'})
+    access_token = create_access_token(
+        identity={'role': 'admin'},
+        expires_delta=False)
+
+    return jsonify({'message': 'Login correcto', "token": access_token})
 
 
 @auth.route('/signup', methods=['GET', 'POST'])

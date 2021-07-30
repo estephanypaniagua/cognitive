@@ -5,6 +5,7 @@ cryptography==3.4.7
 Flask==2.0.1
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.10
+flask-jwt-extended==4.2.3
 flask-marshmallow==0.14.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0; python_version >= "3"
@@ -14,6 +15,7 @@ MarkupSafe==2.0.1
 marshmallow==3.13.0
 marshmallow-sqlalchemy==0.26.1
 pycparser==2.20
+PyJWT==2.1.0
 PyMySQL==1.0.2
 python-decouple==3.4
 Six==1.16.0
