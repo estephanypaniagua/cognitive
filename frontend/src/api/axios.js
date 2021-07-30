@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import { getAccessToken, setAccessToken } from "helpers/accessToken";
+import { getAccessToken, setAccessToken } from "#root/helpers/accessToken";
 
 export const CancelToken = axios.CancelToken;
 export const isCancel = axios.isCancel;
 
 export const BASE_URL_DATA_REQUEST =
-  process.env.NODE_ENV === "production" ? "/api/v1" : "http://localhost:5000/api/v1";
+  process.env.NODE_ENV === "production" ? "/api/v1" : "http://localhost:5000";
 
 export const authRequest = axios.create({ baseURL: BASE_URL_DATA_REQUEST, withCredentials: true });
 

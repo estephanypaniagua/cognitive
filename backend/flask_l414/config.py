@@ -21,6 +21,7 @@ class Config:
 
     DATABASE_CONNECT_OPTIONS = {}
 
+    JWT_TOKEN_LOCATION = "headers"
     JWT_SECRET_KEY = "MY_COOL_SECRET"
 
     # Application threads. A common general assumption is

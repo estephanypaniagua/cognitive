@@ -16,6 +16,9 @@ class Base(db.Model):
         default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
 
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
 
 class CategoryModel(Base):
     __tablename__ = 'category'

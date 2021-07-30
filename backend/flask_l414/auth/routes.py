@@ -2,7 +2,7 @@ from os import access
 from bcrypt import checkpw, gensalt, hashpw
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 from flask_l414 import db
 from flask_l414.models import UserModel, user_schema, users_schema
@@ -27,13 +27,27 @@ def login():
     user = UserModel.query.filter_by(mail=mail).first()
     if not user:
         return jsonify({'message': 'Error usuario inexistente'}), 404
-    if not checkpw(password.encode('utf-8'), user.password.encode("utf-8")):
+    if not checkpw(password.encode('utf-8'), user.password):
         return jsonify({'message': 'Contraseña incorrecta'}), 403
     access_token = create_access_token(
-        identity={'role': 'admin'},
+        identity=user.id,
+        # identity={'role': 'admin'},
         expires_delta=False)
 
     return jsonify({'message': 'Login correcto', "token": access_token})
+
+
+@auth.route('/me', methods=['GET'])
+@jwt_required()
+def me():
+    current_user_id = get_jwt_identity()
+
+    user = UserModel.query.filter_by(id=current_user_id).first()
+    if not user:
+        return jsonify({'message': 'Error usuario inexistente'}), 404
+
+    return user_schema.jsonify(user)
+    # return jsonify({'message': 'Login correcto'})
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
