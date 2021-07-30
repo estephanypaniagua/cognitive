@@ -6,6 +6,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: project_backend
+    depends_on:
+      - project_db
     environment:
       DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
     image: cognitive_g6/project_backend
@@ -37,9 +39,12 @@ services:
 
   project_db_pma:
     container_name: project_db_pma
+    depends_on:
+      - project_db
     image: phpmyadmin/phpmyadmin:5.1.1
     environment:
       - PMA_HOST=project_db
+      - PMA_VERBOSE="Base de datos de producción"
       - PMA_USER=root
       - PMA_PASSWORD=pass_db
     ports:

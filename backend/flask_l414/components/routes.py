@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, Response
 from flask_cors import CORS
 
 from flask_l414 import db
@@ -9,7 +9,27 @@ components = Blueprint('components', __name__)
 CORS(components, supports_credentials=True)
 
 
-@components.route('/components', methods=['Post'])
+@components.route('/components', methods=['GET'])
+def get_components():
+    # Leer todos los datos
+
+    all_components = ComponentModel.query.all()
+    result = components_schema.dump(all_components)
+    cc = len(result)
+    response = jsonify(result)
+    response.headers["Content-Range"] = f"bytes {0}-{cc}/{cc}"
+    response.headers["Access-Control-Expose-Headers"] = "Content-Range"
+    return response
+
+
+@components.route('/components/<id>', methods=['GET'])
+def get_component(id):
+    # Leer 1 dato
+    component = ComponentModel.query.get(id)
+    return component_schema.jsonify(component)
+
+
+@components.route('/components', methods=['POST'])
 def create_component():
     # Crear datos
     name = request.json['name']
@@ -20,21 +40,6 @@ def create_component():
     db.session.add(new_component)
     db.session.commit()
     return component_schema.jsonify(new_component)
-
-
-@components.route('/components', methods=['GET'])
-def get_components():
-    # Leer todos los datos
-    all_components = ComponentModel.query.all()
-    result = components_schema.dump(all_components)
-    return jsonify(result)
-
-
-@components.route('/components/<id>', methods=['GET'])
-def get_component(id):
-    # Leer 1 dato
-    component = ComponentModel.query.get(id)
-    return component_schema.jsonify(component)
 
 
 @components.route('/components/<id>', methods=['PUT'])

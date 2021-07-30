@@ -4,7 +4,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
+import buttonStyle from "#root/assets/jss/material-kit-react/components/buttonStyle.js";
 
 const makeComponentStyles = makeStyles(() => ({
   ...buttonStyle,

@@ -6,15 +6,15 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import LocationOn from "@material-ui/icons/LocationOn";
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Card from "components/Card/Card.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Card from "#root/components/Card/Card.js";
 
-import image1 from "assets/img/bg.jpg";
-import image2 from "assets/img/bg2.jpg";
-import image3 from "assets/img/bg3.jpg";
+import image1 from "#root/assets/img/bg.jpg";
+import image2 from "#root/assets/img/bg2.jpg";
+import image3 from "#root/assets/img/bg3.jpg";
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
+import styles from "#root/assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -45,11 +45,7 @@ export default function SectionCarousel() {
                   </div>
                 </div>
                 <div>
-                  <img
-                    src={image2}
-                    alt="Second slide"
-                    className="slick-image"
-                  />
+                  <img src={image2} alt="Second slide" className="slick-image" />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />

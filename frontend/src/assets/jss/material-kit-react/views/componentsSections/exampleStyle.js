@@ -1,6 +1,6 @@
-import { containerFluid } from "assets/jss/material-kit-react.js";
+import { containerFluid } from "#root/assets/jss/material-kit-react.js";
 
-import imagesStyle from "assets/jss/material-kit-react/imagesStyles.js";
+import imagesStyle from "#root/assets/jss/material-kit-react/imagesStyles.js";
 
 const exampleStyle = {
   section: {

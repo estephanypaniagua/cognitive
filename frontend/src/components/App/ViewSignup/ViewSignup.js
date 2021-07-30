@@ -4,15 +4,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 // import { useMutation, useQuery } from "react-query";
 
-import Header from "components/Header/Header";
-import HeaderLinks from "components/Header/HeaderLinks";
-import Footer from "components/Footer/Footer";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
-import Card from "components/Card/Card";
+import Header from "#root/components/Header/Header";
+import HeaderLinks from "#root/components/Header/HeaderLinks";
+import Footer from "#root/components/Footer/Footer";
+import GridContainer from "#root/components/Grid/GridContainer";
+import GridItem from "#root/components/Grid/GridItem";
+import Card from "#root/components/Card/Card";
 
-import styles from "assets/jss/material-kit-react/views/loginPage";
-import image from "assets/img/bg7.jpg";
+import styles from "#root/assets/jss/material-kit-react/views/loginPage";
+import image from "#root/assets/img/bg7.jpg";
 
 import SignupForm from "./SignupForm";
 import { dataRequest } from "api/axios";

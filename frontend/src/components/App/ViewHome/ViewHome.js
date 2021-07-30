@@ -3,14 +3,14 @@ import clsx from "clsx";
 import React from "react";
 import { Link } from "react-router-dom";
 
-import styles from "assets/jss/material-kit-react/views/landingPage.js";
-import Button from "components/CustomButtons/Button.js";
-import Footer from "components/Footer/Footer.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-import Parallax from "components/Parallax/Parallax.js";
+import styles from "#root/assets/jss/material-kit-react/views/landingPage.js";
+import Button from "#root/components/CustomButtons/Button.js";
+import Footer from "#root/components/Footer/Footer.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Header from "#root/components/Header/Header.js";
+import HeaderLinks from "#root/components/Header/HeaderLinks.js";
+import Parallax from "#root/components/Parallax/Parallax.js";
 
 const useStyles = makeStyles(styles);
 
@@ -31,7 +31,7 @@ const ViewHome = () => {
         rightLinks={<HeaderLinks />}
         routes={dashboardRoutes}
       />
-      <Parallax filter image={require("assets/img/bg4.jpg").default}>
+      <Parallax filter image={require("#root/assets/img/bg4.jpg").default}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>

@@ -3,11 +3,11 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Button from "#root/components/CustomButtons/Button.js";
 // core components
-import styles from "assets/jss/material-kit-react/views/componentsSections/downloadStyle.js";
+import styles from "#root/assets/jss/material-kit-react/views/componentsSections/downloadStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -20,10 +20,9 @@ export default function SectionDownload() {
           <GridItem xs={12} sm={12} md={8}>
             <h2>Do you love this UI Kit?</h2>
             <h4>
-              Cause if you do, it can be yours for FREE. Hit the buttons below
-              to navigate to our website where you can find the kit. We also
-              have the Bootstrap 4 version on plain HTML. Start a new project or
-              give an old Bootstrap project a new look!
+              Cause if you do, it can be yours for FREE. Hit the buttons below to navigate to our
+              website where you can find the kit. We also have the Bootstrap 4 version on plain
+              HTML. Start a new project or give an old Bootstrap project a new look!
             </h4>
           </GridItem>
           <GridItem xs={12} sm={8} md={6}>
@@ -58,9 +57,8 @@ export default function SectionDownload() {
               >
                 Material Kit PRO React{" "}
               </a>
-              .It has a huge number of components, sections and example pages.
-              Start Your Development With A Badass Material-UI nspired by
-              Material Design.
+              .It has a huge number of components, sections and example pages. Start Your
+              Development With A Badass Material-UI nspired by Material Design.
             </h4>
           </GridItem>
           <GridItem xs={12} sm={8} md={6}>

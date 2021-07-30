@@ -1,7 +1,7 @@
-import { container, title } from "assets/jss/material-kit-react.js";
-import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.js";
+import { container, title } from "#root/assets/jss/material-kit-react.js";
+import headerLinksStyle from "#root/assets/jss/material-kit-react/components/headerLinksStyle.js";
 
-const navbarsStyle = (theme) => ({
+const navbarsStyle = theme => ({
   section: {
     padding: "70px 0",
     paddingTop: "0",

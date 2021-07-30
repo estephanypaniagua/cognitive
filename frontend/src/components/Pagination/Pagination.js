@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-import styles from "assets/jss/material-kit-react/components/paginationStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/paginationStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -53,10 +53,8 @@ Pagination.propTypes = {
     PropTypes.shape({
       active: PropTypes.bool,
       disabled: PropTypes.bool,
-      text: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.oneOf(["PREV", "NEXT", "..."]),
-      ]).isRequired,
+      text: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(["PREV", "NEXT", "..."])])
+        .isRequired,
       onClick: PropTypes.func,
     })
   ).isRequired,

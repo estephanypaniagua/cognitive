@@ -1,6 +1,9 @@
 {
   "python.pythonPath": "./backend/.venv/Scripts/python.exe",
-  "python.analysis.extraPaths": [
-    "./backend"
-  ]
+  "python.analysis.extraPaths": ["./backend", "./backend/__pypackages__/3.8/lib"],
+  "python.autoComplete.extraPaths": ["./backend/__pypackages__/3.8/lib"],
+  "[python]": {
+    "editor.wordBasedSuggestions": false
+  },
+  "python.linting.enabled": true
 }

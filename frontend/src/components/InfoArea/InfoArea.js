@@ -6,7 +6,7 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-import styles from "assets/jss/material-kit-react/components/infoStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/infoStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -43,14 +43,6 @@ InfoArea.propTypes = {
   icon: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  iconColor: PropTypes.oneOf([
-    "primary",
-    "warning",
-    "danger",
-    "success",
-    "info",
-    "rose",
-    "gray",
-  ]),
+  iconColor: PropTypes.oneOf(["primary", "warning", "danger", "success", "info", "rose", "gray"]),
   vertical: PropTypes.bool,
 };

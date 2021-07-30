@@ -10,10 +10,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
 
-import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/navPillsStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -107,14 +107,7 @@ NavPills.propTypes = {
       tabContent: PropTypes.node,
     })
   ).isRequired,
-  color: PropTypes.oneOf([
-    "primary",
-    "warning",
-    "danger",
-    "success",
-    "info",
-    "rose",
-  ]),
+  color: PropTypes.oneOf(["primary", "warning", "danger", "success", "info", "rose"]),
   horizontal: PropTypes.shape({
     tabsGrid: PropTypes.object,
     contentGrid: PropTypes.object,

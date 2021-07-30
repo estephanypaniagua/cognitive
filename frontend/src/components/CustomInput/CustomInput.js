@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Controller } from "react-hook-form";
 
-import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/customInputStyle.js";
 
 const useStyles = makeStyles(styles);
 

@@ -1,0 +1,47 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Estephany Paniagua", email = "estephany.paniagua@utec.edu.pe"},
+]
+dependencies = [
+    "Flask~=2.0",
+    "python-decouple~=3.4",
+    "Flask-Bcrypt~=0.7",
+    "Flask-Cors~=3.0",
+    "flask-marshmallow~=0.14",
+    "Flask-SQLAlchemy~=2.5",
+    "marshmallow-sqlalchemy~=0.26",
+    "PyMySQL~=1.0",
+    "cryptography~=3.4",
+]
+requires-python = ">=3.8"
+dynamic = ["classifiers"]
+license = {text = "MIT"}
+
+[project.urls]
+homepage = ""
+
+
+[project.optional-dependencies]
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "autopep8~=1.5",
+    "mypy~=0.910",
+]
+
+[tool.pdm.scripts]
+# server = "pdm run python run.py"
+"server" = "python run.py"
+"generate" = "pdm run generate:prod"
+"generate:file" = "pdm run generate:prod -o requirements.txt"
+"generate:all" = "pdm export -f requirements --without-hashes"
+"generate:prod" = "pdm export -f requirements --without-hashes --prod"
+"generate:dev" = "pdm export -f requirements --without-hashes --dev  --no-default"

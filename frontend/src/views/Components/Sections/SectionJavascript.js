@@ -17,11 +17,11 @@ import Popover from "@material-ui/core/Popover";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Button from "#root/components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
+import styles from "#root/assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
 const useStyles = makeStyles(styles);
 
@@ -51,11 +51,7 @@ export default function SectionJavascript() {
             </div>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6} lg={4}>
-                <Button
-                  color="primary"
-                  block
-                  onClick={() => setClassicModal(true)}
-                >
+                <Button color="primary" block onClick={() => setClassicModal(true)}>
                   <LibraryBooks className={classes.icon} />
                   Classic
                 </Button>
@@ -87,33 +83,24 @@ export default function SectionJavascript() {
                     </IconButton>
                     <h4 className={classes.modalTitle}>Modal title</h4>
                   </DialogTitle>
-                  <DialogContent
-                    id="classic-modal-slide-description"
-                    className={classes.modalBody}
-                  >
+                  <DialogContent id="classic-modal-slide-description" className={classes.modalBody}>
                     <p>
-                      Far far away, behind the word mountains, far from the
-                      countries Vokalia and Consonantia, there live the blind
-                      texts. Separated they live in Bookmarksgrove right at the
-                      coast of the Semantics, a large language ocean. A small
-                      river named Duden flows by their place and supplies it
-                      with the necessary regelialia. It is a paradisematic
-                      country, in which roasted parts of sentences fly into your
-                      mouth. Even the all-powerful Pointing has no control about
-                      the blind texts it is an almost unorthographic life One
-                      day however a small line of blind text by the name of
-                      Lorem Ipsum decided to leave for the far World of Grammar.
+                      Far far away, behind the word mountains, far from the countries Vokalia and
+                      Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
+                      right at the coast of the Semantics, a large language ocean. A small river
+                      named Duden flows by their place and supplies it with the necessary
+                      regelialia. It is a paradisematic country, in which roasted parts of sentences
+                      fly into your mouth. Even the all-powerful Pointing has no control about the
+                      blind texts it is an almost unorthographic life One day however a small line
+                      of blind text by the name of Lorem Ipsum decided to leave for the far World of
+                      Grammar.
                     </p>
                   </DialogContent>
                   <DialogActions className={classes.modalFooter}>
                     <Button color="transparent" simple>
                       Nice Button
                     </Button>
-                    <Button
-                      onClick={() => setClassicModal(false)}
-                      color="danger"
-                      simple
-                    >
+                    <Button onClick={() => setClassicModal(false)} color="danger" simple>
                       Close
                     </Button>
                   </DialogActions>
@@ -126,14 +113,10 @@ export default function SectionJavascript() {
               </div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
-                  <InputLabel className={classes.label}>
-                    Datetime Picker
-                  </InputLabel>
+                  <InputLabel className={classes.label}>Datetime Picker</InputLabel>
                   <br />
                   <FormControl fullWidth>
-                    <Datetime
-                      inputProps={{ placeholder: "Datetime Picker Here" }}
-                    />
+                    <Datetime inputProps={{ placeholder: "Datetime Picker Here" }} />
                   </FormControl>
                 </GridItem>
               </GridContainer>
@@ -143,9 +126,7 @@ export default function SectionJavascript() {
             <div className={classes.title}>
               <h3>Popovers</h3>
             </div>
-            <Button onClick={(event) => setAnchorElLeft(event.currentTarget)}>
-              On left
-            </Button>
+            <Button onClick={event => setAnchorElLeft(event.currentTarget)}>On left</Button>
             <Popover
               classes={{
                 paper: classes.popover,
@@ -164,13 +145,11 @@ export default function SectionJavascript() {
             >
               <h3 className={classes.popoverHeader}>Popover on left</h3>
               <div className={classes.popoverBody}>
-                Here will be some very useful information about his popover.
-                Here will be some very useful information about his popover.
+                Here will be some very useful information about his popover. Here will be some very
+                useful information about his popover.
               </div>
             </Popover>
-            <Button onClick={(event) => setAnchorElTop(event.currentTarget)}>
-              On top
-            </Button>
+            <Button onClick={event => setAnchorElTop(event.currentTarget)}>On top</Button>
             <Popover
               classes={{
                 paper: classes.popover,
@@ -192,9 +171,7 @@ export default function SectionJavascript() {
                 Here will be some very useful information about his popover.
               </div>
             </Popover>
-            <Button onClick={(event) => setAnchorElBottom(event.currentTarget)}>
-              On bottom
-            </Button>
+            <Button onClick={event => setAnchorElBottom(event.currentTarget)}>On bottom</Button>
             <Popover
               classes={{
                 paper: classes.popover,
@@ -216,9 +193,7 @@ export default function SectionJavascript() {
                 Here will be some very useful information about his popover.
               </div>
             </Popover>
-            <Button onClick={(event) => setAnchorElRight(event.currentTarget)}>
-              On right
-            </Button>
+            <Button onClick={event => setAnchorElRight(event.currentTarget)}>On right</Button>
             <Popover
               classes={{
                 paper: classes.popover,

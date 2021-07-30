@@ -109,9 +109,12 @@ category_schema = CategorySchema()
 categories_schema = CategorySchema(many=True)
 
 
-class ComponentSchema(ma.SQLAlchemyAutoSchema):
+class ComponentSchema(ma.Schema):
     class Meta:
-        model = ComponentModel
+        fields = ('id', 'name', 'description', 'category_id', 'quantity')
+# class ComponentSchema(ma.SQLAlchemyAutoSchema):
+#     class Meta:
+#         model = ComponentModel
 
 
 component_schema = ComponentSchema()

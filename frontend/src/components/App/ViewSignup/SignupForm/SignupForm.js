@@ -6,12 +6,12 @@ import People from "@material-ui/icons/People";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import styles from "assets/jss/material-kit-react/views/loginPage";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
-import CardFooter from "components/Card/CardFooter";
-import Button from "components/CustomButtons/Button";
-import CustomInput from "components/CustomInput/CustomInput";
+import styles from "#root/assets/jss/material-kit-react/views/loginPage";
+import CardBody from "#root/components/Card/CardBody";
+import CardHeader from "#root/components/Card/CardHeader";
+import CardFooter from "#root/components/Card/CardFooter";
+import Button from "#root/components/CustomButtons/Button";
+import CustomInput from "#root/components/CustomInput/CustomInput";
 
 const useStyles = makeStyles(styles);
 

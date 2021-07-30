@@ -2,16 +2,16 @@
 FROM python:3.8-slim-buster
 
 # Instalar servidor de producción
-RUN pip3 install gunicorn[gevent]
+# RUN pip3 install gunicorn[gevent]
 
 # Carpeta de trabajo dentro del contenedor
 WORKDIR /app
 
 # Copiar archivo de librerías
-COPY requerimientos.txt requerimientos.txt
+COPY requirements.txt requirements.txt
 
 # Instalar librerías
-RUN pip3 install -r requerimientos.txt
+RUN pip3 install -r requirements.txt
 
 # Copia el código
 COPY . .

@@ -10,7 +10,7 @@ import {
   transition,
   boxShadow,
   drawerWidth,
-} from "assets/jss/material-kit-react.js";
+} from "#root/assets/jss/material-kit-react.js";
 
 const headerStyle = {
   appBar: {
@@ -22,8 +22,7 @@ const headerStyle = {
     color: "#555",
     width: "100%",
     backgroundColor: "#fff",
-    boxShadow:
-      "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
+    boxShadow: "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
     transition: "all 150ms ease 0s",
     alignItems: "center",
     flexFlow: "row nowrap",
@@ -71,38 +70,32 @@ const headerStyle = {
   primary: {
     backgroundColor: primaryColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)",
   },
   info: {
     backgroundColor: infoColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(0, 188, 212, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(0, 188, 212, 0.46)",
   },
   success: {
     backgroundColor: successColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(76, 175, 80, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(76, 175, 80, 0.46)",
   },
   warning: {
     backgroundColor: warningColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(255, 152, 0, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(255, 152, 0, 0.46)",
   },
   danger: {
     backgroundColor: dangerColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(244, 67, 54, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(244, 67, 54, 0.46)",
   },
   rose: {
     backgroundColor: roseColor,
     color: "#FFFFFF",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)",
   },
   transparent: {
     backgroundColor: "transparent !important",
@@ -113,8 +106,7 @@ const headerStyle = {
   dark: {
     color: "#FFFFFF",
     backgroundColor: "#212121 !important",
-    boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)",
+    boxShadow: "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)",
   },
   white: {
     border: "0",
@@ -122,8 +114,7 @@ const headerStyle = {
     marginBottom: "20px",
     color: "#555",
     backgroundColor: "#fff !important",
-    boxShadow:
-      "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
+    boxShadow: "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
   },
   drawerPaper: {
     border: "none",

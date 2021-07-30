@@ -6,20 +6,20 @@ import People from "@material-ui/icons/People";
 import React, { useState } from "react";
 // @material-ui/icons
 
-import Header from "components/Header/Header";
-import HeaderLinks from "components/Header/HeaderLinks";
-import Footer from "components/Footer/Footer";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
-import Button from "components/CustomButtons/Button";
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
-import CardFooter from "components/Card/CardFooter";
-import CustomInput from "components/CustomInput/CustomInput";
+import Header from "#root/components/Header/Header";
+import HeaderLinks from "#root/components/Header/HeaderLinks";
+import Footer from "#root/components/Footer/Footer";
+import GridContainer from "#root/components/Grid/GridContainer";
+import GridItem from "#root/components/Grid/GridItem";
+import Button from "#root/components/CustomButtons/Button";
+import Card from "#root/components/Card/Card";
+import CardBody from "#root/components/Card/CardBody";
+import CardHeader from "#root/components/Card/CardHeader";
+import CardFooter from "#root/components/Card/CardFooter";
+import CustomInput from "#root/components/CustomInput/CustomInput";
 
-import styles from "assets/jss/material-kit-react/views/loginPage";
-import image from "assets/img/bg7.jpg";
+import styles from "#root/assets/jss/material-kit-react/views/loginPage";
+import image from "#root/assets/img/bg7.jpg";
 
 const useStyles = makeStyles(styles);
 

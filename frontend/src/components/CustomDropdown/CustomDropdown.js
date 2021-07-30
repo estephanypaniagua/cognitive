@@ -16,28 +16,28 @@ import Icon from "@material-ui/core/Icon";
 import Popper from "@material-ui/core/Popper";
 
 // core components
-import Button from "components/CustomButtons/Button.js";
+import Button from "#root/components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-kit-react/components/customDropdownStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/customDropdownStyle.js";
 
 const useStyles = makeStyles(styles);
 
 export default function CustomDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (anchorEl && anchorEl.contains(event.target)) {
       setAnchorEl(null);
     } else {
       setAnchorEl(event.currentTarget);
     }
   };
-  const handleClose = (param) => {
+  const handleClose = param => {
     setAnchorEl(null);
     if (props && props.onClick) {
       props.onClick(param);
     }
   };
-  const handleCloseAway = (event) => {
+  const handleCloseAway = event => {
     if (anchorEl.contains(event.target)) {
       return;
     }
@@ -100,15 +100,7 @@ export default function CustomDropdown(props) {
         anchorEl={anchorEl}
         transition
         disablePortal
-        placement={
-          dropup
-            ? left
-              ? "top-start"
-              : "top"
-            : left
-            ? "bottom-start"
-            : "bottom"
-        }
+        placement={dropup ? (left ? "top-start" : "top") : left ? "bottom-start" : "bottom"}
         className={classNames({
           [classes.popperClose]: !anchorEl,
           [classes.popperResponsive]: true,
@@ -118,11 +110,7 @@ export default function CustomDropdown(props) {
           <Grow
             in={Boolean(anchorEl)}
             id="menu-list"
-            style={
-              dropup
-                ? { transformOrigin: "0 100% 0" }
-                : { transformOrigin: "0 0 0" }
-            }
+            style={dropup ? { transformOrigin: "0 100% 0" } : { transformOrigin: "0 0 0" }}
           >
             <Paper className={classes.dropdown}>
               <ClickAwayListener onClickAway={handleCloseAway}>
@@ -171,15 +159,7 @@ CustomDropdown.defaultProps = {
 };
 
 CustomDropdown.propTypes = {
-  hoverColor: PropTypes.oneOf([
-    "black",
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "rose",
-  ]),
+  hoverColor: PropTypes.oneOf(["black", "primary", "info", "success", "warning", "danger", "rose"]),
   buttonText: PropTypes.node,
   buttonIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   dropdownList: PropTypes.array,

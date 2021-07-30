@@ -7,21 +7,21 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core components
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-import Footer from "components/Footer/Footer.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
-import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardFooter from "components/Card/CardFooter.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
+import Header from "#root/components/Header/Header.js";
+import HeaderLinks from "#root/components/Header/HeaderLinks.js";
+import Footer from "#root/components/Footer/Footer.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Button from "#root/components/CustomButtons/Button.js";
+import Card from "#root/components/Card/Card.js";
+import CardBody from "#root/components/Card/CardBody.js";
+import CardHeader from "#root/components/Card/CardHeader.js";
+import CardFooter from "#root/components/Card/CardFooter.js";
+import CustomInput from "#root/components/CustomInput/CustomInput.js";
 
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "#root/assets/jss/material-kit-react/views/loginPage.js";
 
-import image from "assets/img/bg7.jpg";
+import image from "#root/assets/img/bg7.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -62,7 +62,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
+                        onClick={e => e.preventDefault()}
                       >
                         <i className={"fab fa-twitter"} />
                       </Button>
@@ -71,7 +71,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
+                        onClick={e => e.preventDefault()}
                       >
                         <i className={"fab fa-facebook"} />
                       </Button>
@@ -80,7 +80,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
+                        onClick={e => e.preventDefault()}
                       >
                         <i className={"fab fa-google-plus-g"} />
                       </Button>
@@ -128,9 +128,7 @@ export default function LoginPage(props) {
                         type: "password",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
+                            <Icon className={classes.inputIconsColor}>lock_outline</Icon>
                           </InputAdornment>
                         ),
                         autoComplete: "off",

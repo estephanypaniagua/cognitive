@@ -6,14 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import Button from "#root/components/CustomButtons/Button.js";
 
-import landing from "assets/img/landing.jpg";
-import profile from "assets/img/profile.jpg";
+import landing from "#root/assets/img/landing.jpg";
+import profile from "#root/assets/img/profile.jpg";
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/exampleStyle.js";
+import styles from "#root/assets/jss/material-kit-react/views/componentsSections/exampleStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -28,13 +28,7 @@ export default function SectionExamples() {
               <img
                 src={landing}
                 alt="..."
-                className={
-                  classes.imgRaised +
-                  " " +
-                  classes.imgRounded +
-                  " " +
-                  classes.imgFluid
-                }
+                className={classes.imgRaised + " " + classes.imgRounded + " " + classes.imgFluid}
               />
               <Button color="primary" size="lg" simple>
                 View landing page
@@ -46,13 +40,7 @@ export default function SectionExamples() {
               <img
                 src={profile}
                 alt="..."
-                className={
-                  classes.imgRaised +
-                  " " +
-                  classes.imgRounded +
-                  " " +
-                  classes.imgFluid
-                }
+                className={classes.imgRaised + " " + classes.imgRounded + " " + classes.imgFluid}
               />
               <Button color="primary" size="lg" simple>
                 View profile page

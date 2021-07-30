@@ -8,11 +8,11 @@ import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import NavPills from "components/NavPills/NavPills.js";
+import GridContainer from "#root/components/Grid/GridContainer.js";
+import GridItem from "#root/components/Grid/GridItem.js";
+import NavPills from "#root/components/NavPills/NavPills.js";
 
-import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
+import styles from "#root/assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -41,25 +41,22 @@ export default function SectionPills() {
                     tabContent: (
                       <span>
                         <p>
-                          Collaboratively administrate empowered markets via
-                          plug-and-play networks. Dynamically procrastinate B2C
-                          users after installed base benefits.
+                          Collaboratively administrate empowered markets via plug-and-play networks.
+                          Dynamically procrastinate B2C users after installed base benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                       </span>
                     ),
@@ -70,18 +67,16 @@ export default function SectionPills() {
                     tabContent: (
                       <span>
                         <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely
-                          deliverables for real-time schemas.
+                          Efficiently unleash cross-media information without cross-media value.
+                          Quickly maximize timely deliverables for real-time schemas.
                         </p>
                         <br />
                         <p>
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions. Dramatically visualize
-                          customer directed convergence without revolutionary
-                          ROI. Collaboratively administrate empowered markets
-                          via plug-and-play networks. Dynamically procrastinate
-                          B2C users after installed base benefits.
+                          Dramatically maintain clicks-and-mortar solutions without functional
+                          solutions. Dramatically visualize customer directed convergence without
+                          revolutionary ROI. Collaboratively administrate empowered markets via
+                          plug-and-play networks. Dynamically procrastinate B2C users after
+                          installed base benefits.
                         </p>
                       </span>
                     ),
@@ -92,25 +87,22 @@ export default function SectionPills() {
                     tabContent: (
                       <span>
                         <p>
-                          Collaboratively administrate empowered markets via
-                          plug-and-play networks. Dynamically procrastinate B2C
-                          users after installed base benefits.
+                          Collaboratively administrate empowered markets via plug-and-play networks.
+                          Dynamically procrastinate B2C users after installed base benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                       </span>
                     ),
@@ -132,25 +124,22 @@ export default function SectionPills() {
                     tabContent: (
                       <span>
                         <p>
-                          Collaboratively administrate empowered markets via
-                          plug-and-play networks. Dynamically procrastinate B2C
-                          users after installed base benefits.
+                          Collaboratively administrate empowered markets via plug-and-play networks.
+                          Dynamically procrastinate B2C users after installed base benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                         <br />
                         <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
+                          Dramatically visualize customer directed convergence without revolutionary
+                          ROI. Collaboratively administrate empowered markets via plug-and-play
+                          networks. Dynamically procrastinate B2C users after installed base
+                          benefits.
                         </p>
                       </span>
                     ),
@@ -161,18 +150,16 @@ export default function SectionPills() {
                     tabContent: (
                       <span>
                         <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely
-                          deliverables for real-time schemas.
+                          Efficiently unleash cross-media information without cross-media value.
+                          Quickly maximize timely deliverables for real-time schemas.
                         </p>
                         <br />
                         <p>
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions. Dramatically visualize
-                          customer directed convergence without revolutionary
-                          ROI. Collaboratively administrate empowered markets
-                          via plug-and-play networks. Dynamically procrastinate
-                          B2C users after installed base benefits.
+                          Dramatically maintain clicks-and-mortar solutions without functional
+                          solutions. Dramatically visualize customer directed convergence without
+                          revolutionary ROI. Collaboratively administrate empowered markets via
+                          plug-and-play networks. Dynamically procrastinate B2C users after
+                          installed base benefits.
                         </p>
                       </span>
                     ),

@@ -10,7 +10,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import styles from "assets/jss/material-kit-react/components/headerStyle.js";
+import styles from "#root/assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 

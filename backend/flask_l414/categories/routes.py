@@ -9,6 +9,25 @@ categories = Blueprint('categories', __name__)
 CORS(categories, supports_credentials=True)
 
 
+@categories.route('/categories', methods=['GET'])
+def get_categories():
+    # Leer todos los datos
+    all_categories = CategoryModel.query.all()
+    result = categories_schema.dump(all_categories)
+    cc = len(result)
+    response = jsonify(result)
+    response.headers["Content-Range"] = f"bytes {0}-{cc}/{cc}"
+    response.headers["Access-Control-Expose-Headers"] = "Content-Range"
+    return response
+
+
+@categories.route('/categories/<id>', methods=['GET'])
+def get_category(id):
+    # Leer 1 dato
+    category = CategoryModel.query.get(id)
+    return category_schema.jsonify(category)
+
+
 @categories.route('/categories', methods=['POST'])
 def create_category():
     # Crear datos
@@ -18,21 +37,6 @@ def create_category():
     db.session.add(new_category)
     db.session.commit()
     return category_schema.jsonify(new_category)
-
-
-@categories.route('/categories', methods=['GET'])
-def get_categories():
-    # Leer todos los datos
-    all_categories = CategoryModel.query.all()
-    result = categories_schema.dump(all_categories)
-    return jsonify(result)
-
-
-@categories.route('/categories/<id>', methods=['GET'])
-def get_category(id):
-    # Leer 1 dato
-    category = CategoryModel.query.get(id)
-    return category_schema.jsonify(category)
 
 
 @categories.route('/categories/<id>', methods=['PUT'])
