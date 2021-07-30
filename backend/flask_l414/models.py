@@ -54,15 +54,24 @@ class TransactionModel(Base):
     __tablename__ = 'transaction'
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    component_id = db.Column(db.Integer, db.ForeignKey('component.id'))
     is_approved = db.Column(db.String(1))
+
+    def __init__(self, user_id, is_approved):
+        self.user_id = user_id
+        self.is_approved = is_approved
+
+
+class TransactionItemModel(Base):
+    __tablename__ = 'transaction_item'
+
+    transaction_id = db.Column(db.Integer, db.ForeignKey('transaction.id'))
+    component_id = db.Column(db.Integer, db.ForeignKey('component.id'))
     quantity = db.Column(db.Integer)
     operation = db.Column(db.String(1))
 
-    def __init__(self, user_id, component_id, is_approved, quantity, operation):
-        self.user_id = user_id
+    def __init__(self, transaction_id, component_id, quantity, operation):
+        self.transaction_id = transaction_id
         self.component_id = component_id
-        self.is_approved = is_approved
         self.quantity = quantity
         self.operation = operation
 
@@ -124,10 +133,20 @@ component_schema = ComponentSchema()
 components_schema = ComponentSchema(many=True)
 
 
-class TransactionSchema(ma.SQLAlchemyAutoSchema):
+class TransactionSchema(ma.Schema):
     class Meta:
-        model = TransactionModel
+        fields = ('id', 'user_id', 'is_approved')
 
 
 transaction_schema = TransactionSchema()
 transactions_schema = TransactionSchema(many=True)
+
+
+class TransactionItemSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'transaction_id', 'component_id',
+                  'quantity', 'operation')
+
+
+transaction_item_schema = TransactionItemSchema()
+transaction_items_schema = TransactionItemSchema(many=True)

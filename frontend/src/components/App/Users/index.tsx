@@ -59,7 +59,7 @@ export const UserShow = (props: ShowProps) => (
 );
 
 const UserTitle = ({ record }: any) => {
-  return <span>Usuario {record ? `"${record.name}"` : ""}</span>;
+  return <span>Usuario {`"${record?.name || ""}"`}</span>;
 };
 
 export const UserEdit = (props: EditProps) => (

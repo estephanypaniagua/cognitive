@@ -30,6 +30,7 @@ def create_app(config_class=Config):
     from flask_l414.components.routes import components
     from flask_l414.users.routes import users
     from flask_l414.transactions.routes import transactions
+    from flask_l414.transaction_items.routes import transaction_items
 
     app.register_blueprint(healthchecks)
     app.register_blueprint(auth)
@@ -37,6 +38,7 @@ def create_app(config_class=Config):
     app.register_blueprint(components)
     app.register_blueprint(users)
     app.register_blueprint(transactions)
+    app.register_blueprint(transaction_items)
 
     with app.app_context():
         db.create_all()

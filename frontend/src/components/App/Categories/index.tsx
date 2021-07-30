@@ -1,4 +1,4 @@
-import BookIcon from "@material-ui/icons/Book";
+import MUICategoryIcon from "@material-ui/icons/Category";
 import {
   Create,
   CreateProps,
@@ -16,7 +16,7 @@ import {
   TextInput,
 } from "react-admin";
 
-export const CategoryIcon = BookIcon;
+export const CategoryIcon = MUICategoryIcon;
 
 export const CategoryList = (props: ListProps) => (
   <List {...props}>

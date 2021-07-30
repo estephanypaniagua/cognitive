@@ -13,6 +13,20 @@ import {
   CategoryList,
   CategoryShow,
 } from "./Categories";
+import {
+  TransactionCreate,
+  TransactionEdit,
+  TransactionIcon,
+  TransactionList,
+  TransactionShow,
+} from "./Transactions";
+import {
+  TransactionItemCreate,
+  TransactionItemEdit,
+  TransactionItemIcon,
+  TransactionItemList,
+  TransactionItemShow,
+} from "./TransactionItems";
 import { UserCreate, UserEdit, UserIcon, UserList, UserShow } from "./Users";
 
 // import ViewHome from "./ViewHome";
@@ -29,7 +43,7 @@ const App = () => {
       <Resource
         create={CategoryCreate}
         edit={CategoryEdit}
-        // icon={CategoryIcon}
+        icon={CategoryIcon}
         list={CategoryList}
         name="categories"
         options={{ label: "Categorías" }}
@@ -51,6 +65,24 @@ const App = () => {
         name="users"
         options={{ label: "Usuarios" }}
         show={UserShow}
+      />
+      <Resource
+        create={TransactionCreate}
+        edit={TransactionEdit}
+        icon={TransactionIcon}
+        list={TransactionList}
+        name="transactions"
+        options={{ label: "Transacciones" }}
+        show={TransactionShow}
+      />
+      <Resource
+        create={TransactionItemCreate}
+        edit={TransactionItemEdit}
+        icon={TransactionItemIcon}
+        list={TransactionItemList}
+        name="transaction_items"
+        options={{ label: "Items de Transacción" }}
+        show={TransactionItemShow}
       />
     </Admin>
   );
