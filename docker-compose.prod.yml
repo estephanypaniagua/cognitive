@@ -101,6 +101,10 @@ services:
       - "5003:80"
     restart: unless-stopped
 
+networks:
+  proxy:
+  backend:
+
 volumes:
   dbdata:
   certs:
