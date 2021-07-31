@@ -36,7 +36,7 @@ def create_component():
     description = request.json['description']
     category_id = request.json['category_id']
     quantity = request.json['quantity']
-    new_component = ComponentModel(name, description, category_id, quantity)
+    new_component = ComponentModel(name, description, quantity, category_id)
     db.session.add(new_component)
     db.session.commit()
     return component_schema.jsonify(new_component)
