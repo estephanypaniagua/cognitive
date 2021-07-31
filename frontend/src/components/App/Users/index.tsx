@@ -39,7 +39,7 @@ export const UserList = (props: ListProps) => (
       />
       <NumberField label="Código" source="university_code" />
       <NumberField label="Celular" source="cellphone" />
-      <EditButton basePath="/users" />
+      {props.permissions === "ADMIN" && <EditButton basePath="/users" />}
     </Datagrid>
   </List>
 );

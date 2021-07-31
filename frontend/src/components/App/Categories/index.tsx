@@ -8,6 +8,7 @@ import {
   EditProps,
   List,
   ListProps,
+  RichTextField,
   Show,
   ShowProps,
   SimpleForm,
@@ -18,26 +19,26 @@ import {
 
 export const CategoryIcon = MUICategoryIcon;
 
+export const CategoryShow = (props: ShowProps) => (
+  <Show {...props}>
+    <SimpleShowLayout>
+      <TextField source="id" />
+      <TextField label="Nombre" source="name" />
+      <RichTextField label="Descripción" source="description" />
+    </SimpleShowLayout>
+  </Show>
+);
+
 export const CategoryList = (props: ListProps) => (
   <List {...props}>
-    <Datagrid>
+    {/* <Datagrid rowClick="expand" expand={<CategoryShow />}> */}
+    <Datagrid rowClick="show">
       <TextField source="id" />
       <TextField label="Nombre" source="name" />
       <TextField label="Descripción" source="description" />
       <EditButton basePath="/categories" />
     </Datagrid>
   </List>
-);
-
-export const CategoryShow = (props: ShowProps) => (
-  <Show {...props}>
-    <SimpleShowLayout>
-      <TextField source="id" />
-      <TextField source="name" label="Nombre" />
-      <TextField source="description" />
-      <EditButton basePath="/categories" />
-    </SimpleShowLayout>
-  </Show>
 );
 
 const CategoryTitle = ({ record }: any) => {

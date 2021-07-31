@@ -135,7 +135,7 @@ components_schema = ComponentSchema(many=True)
 
 class TransactionSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'user_id', 'is_approved')
+        fields = ('id', 'user_id', 'is_approved', 'created_at', 'updated_at')
 
 
 transaction_schema = TransactionSchema()
@@ -145,7 +145,7 @@ transactions_schema = TransactionSchema(many=True)
 class TransactionItemSchema(ma.Schema):
     class Meta:
         fields = ('id', 'transaction_id', 'component_id',
-                  'quantity', 'operation')
+                  'quantity', 'operation', 'created_at', 'updated_at')
 
 
 transaction_item_schema = TransactionItemSchema()

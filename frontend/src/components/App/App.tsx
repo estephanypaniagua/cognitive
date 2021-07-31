@@ -1,9 +1,10 @@
-import "#root/assets/scss/material-kit-react.scss?v=1.10.0";
+// import "#root/assets/scss/material-kit-react.scss?v=1.10.0";
 
 import { Admin, Resource } from "react-admin";
 
 import authProvider from "#root/helpers/authProvider";
 import dataProvider from "#root/helpers/dataProvider";
+import { theme } from "#root/helpers/theme";
 
 import { ComponentCreate, ComponentEdit, ComponentIcon, ComponentList } from "./Components";
 import {
@@ -13,6 +14,7 @@ import {
   CategoryList,
   CategoryShow,
 } from "./Categories";
+import Dashboard from "./Dashboard";
 import {
   TransactionCreate,
   TransactionEdit,
@@ -37,8 +39,9 @@ const App = () => {
   return (
     <Admin
       authProvider={authProvider}
-      // dashboard={ViewHome}
+      dashboard={Dashboard}
       dataProvider={dataProvider("http://localhost:5000")}
+      theme={theme}
     >
       <Resource
         create={CategoryCreate}
@@ -52,7 +55,7 @@ const App = () => {
       <Resource
         create={ComponentCreate}
         edit={ComponentEdit}
-        // icon={ComponentIcon}
+        icon={ComponentIcon}
         list={ComponentList}
         name="components"
         options={{ label: "Componentes" }}
