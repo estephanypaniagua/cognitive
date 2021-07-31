@@ -42,6 +42,8 @@ services:
       - project_db
     environment:
       DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
+      VIRTUAL_HOST: app.inventronic.tk
+      VIRTUAL_PORT: 5000
     image: estephany16/project_backend
     networks:
       - backend
@@ -56,7 +58,7 @@ services:
     container_name: project_frontend
     environment:
       # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
-      # - LETSENCRYPT_HOST=portal.linkop.pe
+      # - LETSENCRYPT_HOST=inventronic.tk,www.inventronic.tk
       - VIRTUAL_HOST=inventronic.tk,www.inventronic.tk
     image: estephany16/project_frontend
     networks:
@@ -86,7 +88,7 @@ services:
       - project_db
     environment:
       # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
-      # - LETSENCRYPT_HOST=portal.linkop.pe
+      # - LETSENCRYPT_HOST=pma.inventronic.tk
       - VIRTUAL_HOST=pma.inventronic.tk
 
       - PMA_HOST=project_db
