@@ -41,12 +41,15 @@ const authProvider: AuthProvider = {
 
   // called when the user navigates to a new location, to check for authentication
   checkAuth: () => {
+    if (window.location.hash === "#/landing") return Promise.resolve();
+
     return getAccessToken() ? Promise.resolve() : Promise.reject();
     // return localStorage.getItem("username") ? Promise.resolve() : Promise.reject();
   },
 
   // called when the user navigates to a new location, to check for permissions / roles
   getPermissions: async () => {
+    if (window.location.hash === "#/landing") return Promise.resolve();
     try {
       const accessToken = getAccessToken();
       if (!accessToken) return Promise.reject();
@@ -56,7 +59,8 @@ const authProvider: AuthProvider = {
       const role = res.data?.role;
       return role;
     } catch (err) {
-      return Promise.reject(err?.response?.data?.message ?? err.message);
+      return Promise.reject("guest");
+      // return Promise.reject(err?.response?.data?.message ?? err.message);
     }
   },
 

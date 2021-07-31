@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "#root/assets/jss/material-kit-react/views/landingPage.js";
@@ -28,10 +27,10 @@ const ViewHome = () => {
           height: 400,
         }}
         fixed
-        rightLinks={<HeaderLinks />}
+        // rightLinks={<HeaderLinks />}
         routes={dashboardRoutes}
       />
-      <Parallax filter image={require("#root/assets/img/bg4.jpg").default}>
+      <Parallax filter image="/assets/landing.png">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -63,7 +62,7 @@ const ViewHome = () => {
         <SectionCompletedExamples />
         <SectionLogin /> */}
         <GridItem md={12} className={classes.textCenter}>
-          <Link to={"/login-page"} className={classes.link}>
+          <Link to={"/login"} className={classes.link}>
             <Button color="primary" size="lg" simple>
               View Login Page
             </Button>

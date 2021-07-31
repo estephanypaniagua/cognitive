@@ -27,7 +27,8 @@ def login():
     user = UserModel.query.filter_by(mail=mail).first()
     if not user:
         return jsonify({'message': 'Error usuario inexistente'}), 404
-    if not checkpw(password.encode('utf-8'), user.password):
+    # TODO: Not working with SQLite
+    if not checkpw(password.encode('utf-8'), user.password.encode('utf8')):
         return jsonify({'message': 'Contraseña incorrecta'}), 403
     access_token = create_access_token(
         identity=user.id,

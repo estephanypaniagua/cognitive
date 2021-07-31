@@ -6,13 +6,13 @@ export const theme = createMuiTheme({
   ...defaultTheme,
   palette: {
     ...defaultTheme.palette,
-    // primary: {
-    //   ...defaultTheme.palette.primary,
-    //   main: "#7edcff",
-    // },
+    primary: {
+      // ...defaultTheme.palette.primary,
+      main: "#345995",
+    },
     secondary: {
       ...defaultTheme.palette.secondary,
-      main: "#ff9800", // Not far from orange
+      main: "#54428E", // Not far from orange
     },
   },
   // overrides: {
