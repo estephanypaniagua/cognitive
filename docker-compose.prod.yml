@@ -42,7 +42,7 @@ services:
       - project_db
     environment:
       DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
-    image: cognitive_g6/project_backend
+    image: estephany16/project_backend
     networks:
       - backend
     ports:
@@ -58,7 +58,7 @@ services:
       # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
       # - LETSENCRYPT_HOST=portal.linkop.pe
       - VIRTUAL_HOST=inventronic.tk,www.inventronic.tk
-    image: cognitive_g6/project_frontend
+    image: estephany16/project_frontend
     networks:
       - proxy
       - backend
