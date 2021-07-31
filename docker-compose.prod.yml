@@ -1,0 +1,108 @@
+version: "3"
+
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: jwilder/nginx-proxy:0.8.0
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+    networks:
+      - proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - certs:/etc/nginx/certs:ro
+      - html:/usr/share/nginx/html
+      - vhostd:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  letsencrypt:
+    container_name: letsencrypt
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    environment:
+      - DEFAULT_EMAIL=estephany.paniagua@utec.edu.pe
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    networks:
+      - proxy
+    restart: unless-stopped
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - html:/usr/share/nginx/html
+      - vhostd:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  project_backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: project_backend
+    depends_on:
+      - project_db
+    environment:
+      DB_URI: "mysql+pymysql://root:pass_db@project_db/prueba"
+    image: cognitive_g6/project_backend
+    networks:
+      - backend
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  project_frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: project_frontend
+    environment:
+      # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
+      # - LETSENCRYPT_HOST=portal.linkop.pe
+      - VIRTUAL_HOST=invent414.tk,www.invent414.tk
+    image: cognitive_g6/project_frontend
+    networks:
+      - proxy
+      - backend
+    ports:
+      - "5001:80"
+    restart: unless-stopped
+
+  project_db:
+    container_name: project_db
+    environment:
+      - MYSQL_DATABASE=prueba
+      - MYSQL_ROOT_PASSWORD=pass_db
+    image: mysql:8.0.25
+    networks:
+      - backend
+    ports:
+      - "5002:3306"
+    restart: unless-stopped
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  project_db_pma:
+    container_name: project_db_pma
+    depends_on:
+      - project_db
+    environment:
+      # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
+      # - LETSENCRYPT_HOST=portal.linkop.pe
+      - VIRTUAL_HOST=pma.invent414.tk
+
+      - PMA_HOST=project_db
+      - PMA_VERBOSE="Base de datos de producción"
+      - PMA_USER=root
+      - PMA_PASSWORD=pass_db
+    image: phpmyadmin/phpmyadmin:5.1.1
+    networks:
+      - proxy
+      - backend
+    ports:
+      - "5003:80"
+    restart: unless-stopped
+
+volumes:
+  dbdata:
+  certs:
+  html:
+  vhostd:
