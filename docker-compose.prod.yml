@@ -57,7 +57,7 @@ services:
     environment:
       # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
       # - LETSENCRYPT_HOST=portal.linkop.pe
-      - VIRTUAL_HOST=invent414.tk,www.invent414.tk
+      - VIRTUAL_HOST=inventronic.tk,www.inventronic.tk
     image: cognitive_g6/project_frontend
     networks:
       - proxy
@@ -87,7 +87,7 @@ services:
     environment:
       # - LETSENCRYPT_EMAIL=estephany.paniagua@utec.edu.pe
       # - LETSENCRYPT_HOST=portal.linkop.pe
-      - VIRTUAL_HOST=pma.invent414.tk
+      - VIRTUAL_HOST=pma.inventronic.tk
 
       - PMA_HOST=project_db
       - PMA_VERBOSE="Base de datos de producción"
